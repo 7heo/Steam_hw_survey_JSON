@@ -26,7 +26,23 @@ jobs:
     - name: "\"Build\" the JSON"
       run: |
         ./get_json_hw_data_steam.py
-    - uses: actions/upload-artifact@v4
+    - name: release
+      uses: actions/create-release@v4
+      id: create_release
       with:
-        name: steam_hw_survey_videocards.json
-        path: steam_hw_survey_videocards.json
+        draft: false
+        prerelease: false
+        release_name: ${{ steps.version.outputs.version }}
+        tag_name: ${{ github.ref }}
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: upload artifact
+      uses: actions/upload-release-asset@v4
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./steam_hw_survey_videocards.json
+        asset_name: steam_hw_survey_videocards.json
+        asset_content_type: application/json
