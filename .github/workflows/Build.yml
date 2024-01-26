@@ -27,7 +27,7 @@ jobs:
       run: |
         ./get_json_hw_data_steam.py
     - name: release
-      uses: actions/create-release@v4
+      uses: actions/create-release@v3
       id: create_release
       with:
         draft: false
