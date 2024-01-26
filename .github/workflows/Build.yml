@@ -33,7 +33,7 @@ jobs:
         draft: false
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ github.ref }}
+        tag_name: "v0.0.2" #${{ github.ref }}
         body_path: /dev/null
       env:
         GITHUB_TOKEN: ${{ github.token }}
