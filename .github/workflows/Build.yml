@@ -1,6 +1,8 @@
 name: Build
 
-on: push
+on:
+  schedule:
+    - cron: '0 12 1 * *'
 #  workflow_run:
 #    workflows: ["Pylint+Flake8"]
 #    types:
@@ -35,8 +37,8 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ steps.date.outputs.month }}
+        release_name: "${{ steps.date.outputs.month }}" #${{ steps.version.outputs.version }}
+        tag_name: "${{ steps.date.outputs.month }}"
         body_path: /dev/null
       env:
         GITHUB_TOKEN: ${{ github.token }}
