@@ -1,10 +1,11 @@
 name: Build
 
-on:
-  check_suite:
-    types: [completed]
-  #schedule:
-  #  - cron: '0 12 1 * *'
+on: 
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 12 1 * *'
 #  workflow_run:
 #    workflows: ["Pylint+Flake8"]
 #    types:
