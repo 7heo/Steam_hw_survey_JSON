@@ -17,7 +17,7 @@ on:
         required: true
         type: boolean
   schedule:
-    - cron: '40 21 7 * *'
+    - cron: '52 22 7 * *'
 #  workflow_run:
 #    workflows: ["Pylint+Flake8"]
 #    types:
