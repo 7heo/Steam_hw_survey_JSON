@@ -43,9 +43,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install requests beautifulsoup4
-        chmod a+x get_json_hw_data_steam.py
     - name: "\"Build\" the JSON"
       run: |
+        chmod a+x get_json_hw_data_steam.py
         ./get_json_hw_data_steam.py
     - name: release
       uses: actions/create-release@v1
