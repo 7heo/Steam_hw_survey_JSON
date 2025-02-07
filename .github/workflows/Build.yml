@@ -52,8 +52,8 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: "${{ steps.date.outputs.month }}" #${{ steps.version.outputs.version }}
-        tag_name: "${{ steps.date.outputs.month }}"
+        release_name: "${{ steps.date.outputs.year }}.${{ steps.date.outputs.month }}" #${{ steps.version.outputs.version }}
+        tag_name: "${{ steps.date.outputs.year }}.${{ steps.date.outputs.month }}"
         body_path: /dev/null
       env:
         GITHUB_TOKEN: ${{ github.token }}
