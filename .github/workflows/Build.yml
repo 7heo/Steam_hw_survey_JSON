@@ -45,6 +45,8 @@ jobs:
         pip install requests beautifulsoup4
     - name: "\"Build\" the JSON"
       run: |
+        find .
+        pwd
         chmod a+x get_json_hw_data_steam.py
         ./get_json_hw_data_steam.py
     - name: release
